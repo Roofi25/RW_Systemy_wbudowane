@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+        <style>
+            input { width:70px; }
+        </style>
+    </head>
+
+    <body>
+        <script>
+            function zmienKsztalt(kliknietyPrzycisk)
+            {
+                shape = kliknietyPrzycisk.name;
+            }
+
+            var shape = "box";
+
+            function setup() 
+            {
+                createCanvas(500, 450, WEBGL); 
+            }
+
+            function draw() 
+            {
+                background(75);
+                fill(180, 20, 10);
+                stroke(255,255,255);
+                rotateX(0.02 * frameCount);
+                rotateY(0.02 * frameCount);
+
+                if(shape == "box")
+                {
+                    box(150, 150, 150);
+                }
+                else if(shape == "cone")
+                {
+                    cone(100, 150);
+                }
+                else if(shape == "sphere")
+                {
+                    sphere(150);
+                }
+            }
+            
+        </script>
+        <input type="button" value="Sześcian" name="box" onclick="zmienKsztalt(this)">
+        <input type="button" value="Stożek" name="cone" onclick="zmienKsztalt(this)">
+        <input type="button" value="Kula" name="sphere" onclick="zmienKsztalt(this)">
+    </body>
+</html>

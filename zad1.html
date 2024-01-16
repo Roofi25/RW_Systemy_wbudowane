@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    <script>
+        function zatwierdz()
+        {
+            var form = document.getElementById("formularz");
+
+            var imieUzytkownika = form.elements["imie"].value;
+            var nazwiskoUzytkownika = form.elements["nazwisko"].value;
+
+            var osoba = new Osoba(imieUzytkownika, nazwiskoUzytkownika);
+
+            osoba.wyswietlInformacje();
+        }
+
+        class Osoba
+        {
+            constructor(imie, nazwisko)
+            {
+                this.imie = imie;
+                this.nazwisko = nazwisko;
+            }
+            wyswietlInformacje()
+            {
+                console.log(this.imie, this.nazwisko);
+            }
+        }
+    </script>
+
+    <style>
+        p { display:inline-block }
+    </style>
+    </head>
+
+    <body>
+        <h2>Formularz</h2>
+        <form id="formularz">
+            <p>Imie: </p>
+            <input type="text" id="imie" name="imie"><br>
+            <p>Nazwisko: </p>
+            <input type="text" id="nazwisko" name="nazwisko"><br>
+            <input type="button" value="Zatwierdz" onclick="zatwierdz()">
+            <input type="reset" value="Resetuj">
+        </form>
+    </body>
+</html>
